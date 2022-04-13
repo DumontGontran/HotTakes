@@ -11,7 +11,7 @@ const saucesRoutes = require('./routes/sauce');
 
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://DumontGontran:Piiquante59!@cluster0.jrixf.mongodb.net/myDB?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://DumontGontran:password@cluster0.jrixf.mongodb.net/myDB?retryWrites=true&w=majority',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
