@@ -1,3 +1,5 @@
+require('dotenv').config('../.env');
+
 const express = require('express');
 
 const app = express();
@@ -11,7 +13,7 @@ const saucesRoutes = require('./routes/sauce');
 
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://DumontGontran:Piiquante59!@cluster0.jrixf.mongodb.net/myDB?retryWrites=true&w=majority',
+mongoose.connect(`mongodb+srv://${process.env.MONGODB_USER}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_CLUSTER_NAME}.mongodb.net/${process.env.MONGODB_DATABASE_NAME}?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
