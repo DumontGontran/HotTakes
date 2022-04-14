@@ -9,7 +9,7 @@
 
 1. `npm install` dans le dossier frontend pour installer les node_modules.
 2. Vérifiez que npm a bien été installé sur votre ordinateur avec la commande: `npm -v`.
-3. `npm install @angular/cli` dans le dossier frontend pour installer angular, afin d'initialiser, de développer, d'échafauder et de maintenir des applications angular.
+3. `npm install @angular/cli` dans le dossier frontend pour installer angular, afin d'initialiser, de développer, d'échafauder et de maintenir l'application angular FrontEnd.
 4. `npm start` (recommandée pour ce projet) ou `ng serve` (possible si vous utilisez VSCode) pour utiliser le Frontend en localhost avec le port: 4200. 
 5. Se rendre sur http://localhost:4200 via votre navigateur internet.
 
