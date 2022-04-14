@@ -34,10 +34,10 @@
 3. Renseignez ensuite vos informations dans les champs correspondants.
 
 #### Exemple:
-`MONGODB_USER = "mettez votre username ici"`
-`MONGODB_PASSWORD = "mettez votre password ici"`
-`MONGODB_CLUSTER_NAME = "mettez votre cluster ici"`
-`MONGODB_DATABASE_NAME = "mettez votre nom de DB ici"`
+`MONGODB_USER = "mettez votre username ici"`  
+`MONGODB_PASSWORD = "mettez votre password ici"`  
+`MONGODB_CLUSTER_NAME = "mettez votre cluster ici"`  
+`MONGODB_DATABASE_NAME = "mettez votre nom de DB ici"`  
 
 4. Renseignez votre token secret dans le champs correspondant. 
 
