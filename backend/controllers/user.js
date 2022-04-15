@@ -11,30 +11,28 @@ exports.signup = async (req, res) => {
     let hash = await bcrypt.hash(req.body.password, 10);
 
     const user = await new User({
-      email: req.body.email,
+      email: req.body.email.toLowerCase(),
       password: hash
     });
     
-    if (!hash) {
-      throw res.status(400).json({ error });
-    }
     await user.save();
     return res.status(201).json({ message: 'Utilisateur créé !' });
   }
   catch (error) {
-    return res.status(500).json({ error });
+    console.error(error);
+    return res.status(500).json({ message: "Erreur interne !" });
   }
 };
 
 exports.login = async (req, res) => {
   try {
-    let user = await User.findOne({ email: req.body.email });
+    let user = await User.findOne({ email: req.body.email.toLowerCase() });
     if (!user) {
-      throw res.status(404).json({ error: 'Utilisateur non trouvé !' });
+      throw res.status(404).json({ message: 'Utilisateur non trouvé !' });
     }
     let valid = await bcrypt.compare(req.body.password, user.password)
     if (!valid) {
-      throw res.status(401).json({ error: 'Mot de passe incorrect !' });
+      throw res.status(401).json({ message: 'Mot de passe incorrect !' });
     }
     return res.status(200).json({
       userId: user._id,
@@ -46,6 +44,7 @@ exports.login = async (req, res) => {
     });
   }
   catch (error) {
-    return res.status(500).json({ error });
+    console.error(error);
+    return res.status(500).json({ message: "Erreur interne !" });
   }
 };

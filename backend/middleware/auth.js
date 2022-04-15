@@ -14,6 +14,6 @@ module.exports = (req, res, next) => {
       next();
     }
   } catch (error) {
-    return res.status(401).json({ error: 'Requête invalide !' });
+    return res.status(500).json({ message: 'Erreur interne !' });
   }
 };
