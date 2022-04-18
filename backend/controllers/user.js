@@ -11,12 +11,21 @@ exports.signup = async (req, res) => {
     let hash = await bcrypt.hash(req.body.password, 10);
 
     const user = await new User({
-      email: req.body.email.toLowerCase(),
+      email: req.body.email.toLowerCase().split(" ").join(""),
       password: hash
     });
     
-    await user.save();
-    return res.status(201).json({ message: 'Utilisateur créé !' });
+    await user.save((error) => {
+
+      if(!error)
+        return res.status(201).json({ message: 'Utilisateur créé !' });
+
+      if(error.message == `User validation failed: email: Error, expected \`email\` to be unique. Value: \`${user.email}\``)
+        return res.status(409).json({ message: "Un compte existe déjà avec cette adresse email !" })
+
+      throw error;
+
+    });
   }
   catch (error) {
     console.error(error);

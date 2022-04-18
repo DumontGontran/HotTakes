@@ -41,10 +41,9 @@ exports.getOneSauce = async (req, res) => {
   }
 };
 
-// Revoir modifySauce selon les cas de figures(changement image || texte || image + texte)
 exports.modifySauce = async (req, res) => {
   try {
-    let sauceObject = JSON.parse(req.body.sauce);
+    let sauceObject = req.body.sauce ? JSON.parse(req.body.sauce) : req.body;
 
     if (req.file) {
       let sauce = await Sauce.findOne({ _id: req.params.id });
