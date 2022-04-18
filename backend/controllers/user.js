@@ -14,17 +14,16 @@ exports.signup = async (req, res) => {
       email: req.body.email.toLowerCase().split(" ").join(""),
       password: hash
     });
-    
+
     await user.save((error) => {
-
-      if(!error)
+      if (!error) {
         return res.status(201).json({ message: 'Utilisateur créé !' });
+      }
 
-      if(error.message == `User validation failed: email: Error, expected \`email\` to be unique. Value: \`${user.email}\``)
+      if (error.message == `User validation failed: email: Error, expected \`email\` to be unique. Value: \`${user.email}\``) {
         return res.status(409).json({ message: "Un compte existe déjà avec cette adresse email !" })
-
+      }
       throw error;
-
     });
   }
   catch (error) {
