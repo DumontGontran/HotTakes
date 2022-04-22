@@ -2,18 +2,10 @@ const Sauce = require('../models/sauce');
 
 exports.likeSauce = async (req, res) => {
     try {
-        /*
-        console.log('Contenu req.body likeCtrl', req.body);
-        console.log('Contenu req.params likeCtrl', req.params);
-        console.log('id en _id', { _id: req.params.id });
-        */
-
         let sauce = await Sauce.findOne({ _id: req.params.id });
         if (!sauce) {
             throw res.status(404).json({ message: 'Sauce introuvable !' });
         }
-
-        // console.log('Contenu résultat sauce', sauce);
 
         switch (req.body.like) {
             case 1:
@@ -64,6 +56,6 @@ exports.likeSauce = async (req, res) => {
     }
     catch (error) {
         console.error(error);
-        return res.status(500).json({ message: "Erreur interne !" });
+        return res.status(500).json({ message: 'Erreur interne !' });
     }
 };

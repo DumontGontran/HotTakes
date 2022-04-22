@@ -19,26 +19,31 @@ exports.signup = async (req, res) => {
       if (!error) {
         return res.status(201).json({ message: 'Utilisateur créé !' });
       }
-
+      
       if (error.message == `User validation failed: email: Error, expected \`email\` to be unique. Value: \`${user.email}\``) {
-        return res.status(409).json({ message: "Un compte existe déjà avec cette adresse email !" })
+        return res.status(409).json({ message: 'Un compte existe déjà avec cette adresse email !' });
       }
-      throw error;
+
+      if(error){
+        return res.status(400).json({ message: 'Une adresse email est requise !' });
+      }
     });
   }
   catch (error) {
     console.error(error);
-    return res.status(500).json({ message: "Erreur interne !" });
+    return res.status(500).json({ message: 'Erreur interne !' });
   }
 };
 
 exports.login = async (req, res) => {
   try {
     let user = await User.findOne({ email: req.body.email.toLowerCase() });
+
     if (!user) {
       throw res.status(404).json({ message: 'Utilisateur non trouvé !' });
     }
-    let valid = await bcrypt.compare(req.body.password, user.password)
+    let valid = await bcrypt.compare(req.body.password, user.password);
+
     if (!valid) {
       throw res.status(401).json({ message: 'Mot de passe incorrect !' });
     }
@@ -53,6 +58,6 @@ exports.login = async (req, res) => {
   }
   catch (error) {
     console.error(error);
-    return res.status(500).json({ message: "Erreur interne !" });
+    return res.status(500).json({ message: 'Erreur interne !' });
   }
 };

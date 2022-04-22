@@ -24,7 +24,7 @@ exports.createSauce = async (req, res) => {
   }
   catch (error) {
     console.error(error);
-    return res.status(500).json({ message: "Erreur interne !" });
+    return res.status(500).json({ message: 'Erreur interne !' });
   }
 };
 
@@ -32,12 +32,12 @@ exports.getOneSauce = async (req, res) => {
   try {
     let sauce = await Sauce.findOne({ _id: req.params.id });
     if (!sauce) {
-      throw res.status(404).json({ message: "Sauce non trouvée !" });
+      throw res.status(404).json({ message: 'Sauce non trouvée !' });
     }
     return res.status(200).json(sauce);
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ message: "Erreur interne !" });
+    return res.status(500).json({ message: 'Erreur interne !' });
   }
 };
 
@@ -66,7 +66,7 @@ exports.modifySauce = async (req, res) => {
   }
   catch (error) {
     console.error(error);
-    return res.status(500).json({ message: "Erreur interne !" });
+    return res.status(500).json({ message: 'Erreur interne !' });
   }
 };
 
@@ -80,7 +80,7 @@ exports.deleteSauce = async (req, res) => {
   }
   catch (error) {
     console.error(error);
-    return res.status(500).json({ message: "Erreur interne !" });
+    return res.status(500).json({ message: 'Erreur interne !' });
   }
 };
 
@@ -91,6 +91,6 @@ exports.getAllSauces = async (req, res) => {
   }
   catch (error) {
     console.error(error);
-    return res.status(500).json({ message: "Erreur interne !" });
+    return res.status(500).json({ message: 'Erreur interne !' });
   }
 };
