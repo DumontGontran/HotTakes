@@ -11,7 +11,7 @@ exports.signup = async (req, res) => {
     let hash = await bcrypt.hash(req.body.password, 10);
 
     const user = await new User({
-      email: req.body.email.toLowerCase().split(" ").join(""),
+      email: req.body.email.toLowerCase().split(' ').join(''),
       password: hash
     });
 
