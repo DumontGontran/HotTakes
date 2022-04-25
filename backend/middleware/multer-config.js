@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
       }
       else {
         callback(null, 'images');
-        console.error('Image correctement ajouté au dossier \'images\' !');
+        console.error('Image correctement ajoutée au dossier \'images\' !');
       }
     });
   },
