@@ -1,5 +1,7 @@
 const multer = require('multer');
 
+const fs = require('fs');
+
 const MIME_TYPES = {
   'image/jpg': 'jpg',
   'image/jpeg': 'jpg',
@@ -8,7 +10,15 @@ const MIME_TYPES = {
 
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    callback(null, 'images');
+    fs.mkdir('../backend/images', { recursive: true }, function (error) {
+      if (error) {
+        console.error(error);
+      }
+      else {
+        callback(null, 'images');
+        console.error('Image correctement ajouté au dossier \'images\' !');
+      }
+    });
   },
   filename: (req, file, callback) => {
     const name = file.originalname.split(' ').join('_').substring(0, file.originalname.lastIndexOf('.'));
