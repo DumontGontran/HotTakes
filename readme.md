@@ -1,32 +1,18 @@
-# ÉTAPES POUR INITIALISER LE PROJET
+# APERCU DU PROJET
 
-## Coté Frontend et Backend
+## Main Page
 
-1. Installez Node.js sur votre ordinateur en vous rendant sur https://nodejs.org/en/ .
-2. vérifiez que Node.js a bien été installé sur votre ordinateur avec la commande: `node -v`.  
+![alt text](https://gontrandev.fr/hottakes2.webp)
 
-## Coté Frontend
+## Sauce Page
 
-1. `npm install` dans le dossier frontend pour installer les node_modules.
-2. Vérifiez que npm a bien été installé sur votre ordinateur avec la commande: `npm -v`.
-3. `npm install @angular/cli` dans le dossier frontend pour installer angular/cli, afin que `ng serve` puisse se lancer automatiquement lors du `npm start`.
-4. `npm start` pour utiliser le Frontend en localhost avec le port: 4200. 
-5. Se rendre sur http://localhost:4200/ via votre navigateur internet.
+![alt text](https://gontrandev.fr/hottakes1.webp)
 
-## Coté Backend
+## Add Page
 
-### Les npm install à utiliser absolument dans le dossier backend pour ce projet
+![alt text](https://gontrandev.fr/hottakes3.webp)
 
-1. `npm install` pour installer les node_modules. 
-2. `npm install bcrypt` pour installer le package de hash de mot de passe.
-3. `npm install nodemon` pour installer le package de reload serveur à chaque changement apporté à vos fichiers du dossier backend.
-4. `npm install mongoose` pour installer le package afin d'accèder à votre DB mongoDB.
-5. `npm install mongoose-unique-validator` pour installer le package d'ajout d'une validation de pré-enregistrement pour les champs uniques dans un schéma Mongoose.
-6. `npm install express` pour installer le framework utilisé pour la création de l'API backend. 
-7. `npm install multer` permet de mettre en place le middleware pour la gestion des données notamment le téléchargement de fichiers. 
-8. `npm install jsonwebtoken` permet l'échange sécurisé de jetons (tokens) entre plusieurs parties. 
-
-### Fichier .env du dossier backend
+# Fichier .env du dossier backend
 
 1. Renommez le fichier .env_sample en .env 
 2. Créez votre base de données sur mongoDB
